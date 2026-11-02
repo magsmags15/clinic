@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MB Pagaduan Dental Care and Orthodontics</title>
+    <!-- Google Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blue: #277AA5;
+            --blue-dark: #1F6489;
+            --blue-press: #194F6D;
+            --blue-logo: #4197C0;
+            --navy: #323F6F;
+            --navy-dark: #25305A;
+            --navy-press: #1C2547;
+            --tint: #E6F2F8;
+            --tint-press: #D3E8F2;
+            --soft: #F5F9FA;
+            --white: #FFFFFF;
+            --text: #333333;
+            --text-2: #5B6770;
+            --border: #D5E3EA;
+            --input-border: #6B7780;
+            --disabled: #B8C4CC;
+            --ok: #2E7D32;
+            --ok-bg: #E3F4E4;
+            --ok-text: #1B5E20;
+            --overlay: rgba(35, 45, 80, 0.60);
+            --radius: 8px;
+            --radius-card: 12px;
+            --font: 'Inter', system-ui, -apple-system, sans-serif;
+            --shadow-hover: 0 6px 20px rgba(50, 63, 111, 0.12);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font); color: var(--text); background-color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        a { color: var(--blue); text-decoration: none; transition: all 0.2s ease; }
+        a:hover { color: var(--navy); }
+        button { font-family: var(--font); cursor: pointer; border: none; outline: none; transition: all 0.2s ease; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-padding { padding: 80px 0; }
+        @media (max-width: 768px) { .section-padding { padding: 48px 0; } }
+
+        .text-center { text-align: center; }
+        .items-center { align-items: center; }
+        
+        h1, h2, h3, h4 { color: var(--navy); font-weight: 700; }
+        h1 { font-size: 44px; line-height: 1.2; }
+        h2 { font-size: 32px; line-height: 1.25; margin-bottom: 8px; }
+        h3 { font-size: 20px; line-height: 1.3; }
+        @media (max-width: 768px) { h1 { font-size: 30px; } h2 { font-size: 24px; } h3 { font-size: 18px; } }
+        .subtitle { color: var(--text-2); font-size: 16px; margin-bottom: 36px; }
+
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: var(--radius); font-size: 16px; font-weight: 600; text-align: center; transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease; text-decoration: none; gap: 8px; }
+        .btn-primary { background-color: var(--blue); color: var(--white); }
+        .btn-primary:hover:not(:disabled) { background-color: var(--blue-dark); color: var(--white); }
+        .btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
+        .btn-secondary { background-color: var(--white); color: var(--blue-dark); border: 2px solid var(--blue); }
+        .btn-secondary:hover { background-color: var(--tint); color: var(--blue-dark); }
+        .btn-navy { background-color: var(--navy); color: var(--white); }
+        .btn-navy:hover { background-color: var(--navy-dark); color: var(--white); }
+
+        header { position: sticky; top: 0; z-index: 1000; height: 72px; background-color: var(--white); border-bottom: 1px solid var(--border); display: flex; align-items: center; }
+        .header-content { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+        .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; transition: transform 0.2s ease; }
+        .brand-logo:hover { transform: translateY(-2px); }
+        .logo-circle { width: 48px; height: 48px; border-radius: 50%; background-color: var(--blue); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 11px; text-align: center; line-height: 1.1; padding: 2px; flex-shrink: 0; }
+        .brand-title { font-size: 15px; font-weight: 700; color: var(--navy); max-width: 220px; line-height: 1.25; }
+
+        .nav-menu { display: flex; gap: 32px; list-style: none; align-items: center; }
+        .nav-link { font-size: 15px; font-weight: 500; color: var(--text); padding: 6px 0; position: relative; cursor: pointer; }
+        .nav-link:hover { color: var(--blue); }
+        .nav-link.active { color: var(--navy); font-weight: 700; }
+        .nav-link.active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 3px; background-color: var(--blue); border-radius: 2px; }
+        .mobile-menu-toggle { display: none; background: none; font-size: 24px; color: var(--navy); }
+
+        .hero { position: relative; background: linear-gradient(var(--overlay), var(--overlay)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: var(--white); padding: 100px 0 110px 0; }
+        .hero h1 { color: var(--white); font-size: 44px; margin-bottom: 16px; max-width: 650px; }
+        .hero p { font-size: 18px; margin-bottom: 32px; max-width: 580px; opacity: 0.95; }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        .page-banner { position: relative; background: linear-gradient(var(--overlay), var(--overlay)), url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; color: var(--white); padding: 48px 0; }
+        .breadcrumb { font-size: 14px; margin-bottom: 8px; opacity: 0.85; }
+        .page-banner h1 { color: var(--white); text-shadow: 0 2px 12px rgba(20, 28, 55, 0.35); }
+        .page-banner h1::after { content: ''; display: block; width: 56px; height: 4px; margin-top: 14px; background-color: var(--blue-logo); border-radius: 2px; }
+        .page-banner p { color: var(--white); opacity: 0.95; margin-top: 12px; }
+
+        .card { background-color: var(--white); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 24px; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+        
+        .cards-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .cards-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+
+        .service-card-item { border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--border); background: var(--white); display: flex; flex-direction: column; transition: all 0.2s ease; }
+        .service-card-item:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); border-color: var(--blue-logo); }
+        .service-card-item img { width: 100%; height: 200px; object-fit: cover; }
+        .service-card-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+        .service-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .service-card-content h3 { font-size: 18px; color: var(--navy); }
+        .service-price-badge { font-size: 12px; font-weight: 600; color: var(--blue-dark); background-color: var(--tint); padding: 4px 8px; border-radius: 4px; }
+        .service-card-content p { color: var(--text-2); font-size: 14px; line-height: 1.5; margin-bottom: 16px; flex-grow: 1; }
+        .service-card-link { font-size: 14px; font-weight: 600; color: var(--blue); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+
+        .steps-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+        .step-card { text-align: center; background: var(--white); padding: 32px 20px 24px 20px; border-radius: var(--radius-card); border: 1px solid var(--border); }
+        .step-number { width: 44px; height: 44px; border-radius: 50%; background-color: var(--blue); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; margin: 0 auto 16px auto; border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--blue-logo); }
+        .step-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+        .step-desc { color: var(--text-2); font-size: 13px; line-height: 1.4; }
+
+        /* ABOUT US, VISIT US, FAQ STYLES */
+        .visit-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: start; }
+        .map-box { width: 100%; height: 380px; background-color: #e5e3df; border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--border); position: relative; }
+        .map-box iframe { width: 100%; height: 100%; border: 0; }
+        .info-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+        .info-item { display: flex; align-items: flex-start; gap: 12px; }
+        .info-circle-icon { width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--blue); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+        
+        .faq-accordion { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; }
+        .faq-item { border-bottom: 1px solid var(--border); background-color: var(--white); }
+        .faq-header { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 17px; color: var(--navy); }
+        .faq-toggle { font-size: 22px; color: var(--blue); font-weight: 400; }
+        .faq-body { padding: 0 0 20px 0; color: var(--text-2); font-size: 15px; line-height: 1.6; display: none; }
+        .faq-item.active .faq-body { display: block; }
+
+        .tab-page { display: none; }
+        .tab-page.active { display: block; animation: pageIn .45s cubic-bezier(.2,.7,.2,1) both; }
+        @keyframes pageIn { from { opacity: 0; transform: translateY(12px); } to {opacity: 1; transform: translateY(0);} }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to {opacity: 1; transform: translateY(0);} }
+        @keyframes slideF { from { opacity: 0; transform: translateX(28px); } to {opacity: 1; transform: translateX(0);} }
+        @keyframes slideB { from { opacity: 0; transform: translateX(-28px); } to {opacity: 1; transform: translateX(0);} }
+        @keyframes pop { 0% { transform: scale(.7); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
+        @keyframes shake { 20%,60% { transform: translateX(-6px); } 40%,80% { transform: translateX(6px); } }
+
+        /* BOOKING UI STYLES */
+        .bk-wrap { background: #F4F9FA; padding: 56px 0 80px; min-height: 70vh;}
+        .stepper { display: flex; align-items: flex-start; justify-content: center; max-width: 520px; margin: 0 auto 44px; }
+        .st { width: 44px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .st-c { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 15px; background: #fff; border: 2px solid var(--border); color: var(--text); transition: all .4s ease; }
+        .st.on .st-c { background: var(--blue); border-color: var(--blue); color: #fff; box-shadow: 0 0 0 3px #F4F9FA, 0 0 0 5px var(--blue); }
+        .st.cur .st-c { animation: pop .5s ease; }
+        .st-l { font-size: 13px; font-weight: 600; color: var(--navy); white-space: nowrap; }
+        .ln { flex: 1; height: 2px; background: var(--border); margin: 19px 12px 0; position: relative; overflow: hidden; border-radius: 2px; }
+        .ln i { position: absolute; inset: 0; background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+        .ln.on i { transform: scaleX(1); }
+
+        .bk-grid { display: grid; grid-template-columns: minmax(0, 2.06fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+        .bk-card, .sum { background: #fff; border: 2px solid var(--border); border-radius: 12px; }
+        .bk-card { padding: 30px; overflow: hidden; }
+        .bk-panel { display: none; }
+        .bk-panel.on { display: block; animation: slideF .5s cubic-bezier(.2,.7,.2,1) both; }
+        .back-dir .bk-panel.on { animation-name: slideB; }
+        
+        .bk-h { display: flex; gap: 16px; align-items: center; margin-bottom: 26px; }
+        .bk-n { width: 48px; height: 48px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; font-size: 18px; display: grid; place-items: center; flex: none; }
+        .bk-h h2 { font-size: 22px; margin: 0; }
+        .bk-h p { font-size: 14px; color: var(--text); margin: 2px 0 0; }
+
+        .dt { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 36px; align-items: start; }
+        .cal-hd { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+        .cal-hd b { color: var(--navy); font-size: 16px; }
+        .cal-btn { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--text); background: #fff; display: grid; place-items: center; color: var(--text); transition: all .2s; }
+        .cal-btn:hover:not(:disabled) { background: var(--navy); border-color: var(--navy); color: #fff; transform: scale(1.08); }
+        .cal-g { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 6px; text-align: center; }
+        .cal-w { font-size: 13px; font-weight: 700; padding-bottom: 10px; }
+        .cal-d { width: 38px; height: 38px; margin: 0 auto; border-radius: 6px; background: none; font-size: 14px; font-weight: 600; color: var(--text); border: 2px solid transparent; transition: all .2s; }
+        .late-notice { margin-top: 18px; background: var(--soft); border: 1px solid var(--border); border-left: 4px solid var(--blue); border-radius: 10px; padding: 14px 16px; animation: fadeUp .3s ease; }
+        .late-notice b { display: block; color: var(--navy); font-size: 15px; margin-bottom: 6px; }
+        .late-notice p { color: var(--text-2); font-size: 14px; line-height: 1.55; margin: 0 0 6px; }
+        .late-notice .late-contact { margin: 8px 0 0; font-weight: 600; color: var(--navy); }
+        .late-notice a { color: var(--blue); font-weight: 700; text-decoration: underline; }
+        .cal-d:disabled { color: #C3CED4; font-weight: 500; cursor: not-allowed; text-decoration: line-through; }
+        .cal-d:not(:disabled):hover { background: var(--tint); transform: scale(1.1); }
+        .cal-d.today { border-color: var(--navy); }
+        .cal-d.sel { background: var(--blue); border-color: var(--blue); color: #fff; transform: scale(1.08); box-shadow: 0 6px 14px rgba(39,122,165,.35); }
+
+        .doctor-section-box { background: var(--soft); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-top: 0; display: none; animation: fadeUp .3s ease;}
+        .doctor-section-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+        .doctor-grid-inline { display: grid; grid-template-columns: repeat(1, 1fr); gap: 12px; }
+        .doctor-card-sm { display: flex; align-items: center; gap: 12px; border: 2px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; background: #fff; transition: all .2s; }
+        .doctor-card-sm:hover { border-color: var(--blue); transform: translateY(-1px); }
+        .doctor-card-sm.sel { background: var(--tint-press); border-color: var(--blue); }
+        .doc-avatar-sm { width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: var(--white); display: grid; place-items: center; font-size: 13px; font-weight: 700; flex: none; }
+        .doc-info-sm h4 { font-size: 14px; color: var(--navy); margin: 0; }
+        .doc-info-sm p { font-size: 11.5px; color: var(--text-2); margin: 0; }
+
+        .sv-group { margin-bottom: 20px; }
+        .sv-t { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: var(--navy); border-bottom: 1px solid var(--border); padding-bottom: 6px;}
+        .sv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;}
+        .sv-o { display: flex; align-items: center; gap: 10px; border: 2px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; font-size: 13.5px; font-weight: 600; background: #fff; transition: all .2s; }
+        .sv-o:hover { border-color: var(--blue); box-shadow: 0 4px 10px rgba(39,122,165,.1); }
+        .rd { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #8A959C; display: grid; place-items: center; transition: all .2s; flex: none;}
+        .rd::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); transform: scale(0); transition: transform .2s; }
+        .sv-o.sel { background: var(--tint-press); border-color: var(--blue); }
+        .sv-o.sel .rd { border-color: var(--blue); }
+        .sv-o.sel .rd::after { transform: scale(1); }
+
+        .fm { display: grid; grid-template-columns: 1fr; gap: 18px; }
+        .fld { position: relative; }
+        .fl { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; color: var(--navy);}
+        .fi { width: 100%; height: 48px; padding: 0 16px; border: 1px solid var(--input-border); border-radius: 8px; font: 15px var(--font); transition: all .2s; }
+        .fi:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--tint); }
+        
+        .verify-box { display: flex; gap: 10px; }
+        .verify-msg { display: none; margin-top: 10px; padding: 12px; border-radius: 8px; font-size: 14px; background: var(--tint); color: var(--blue-dark); border-left: 4px solid var(--blue); font-weight: 500;}
+
+        .bk-hint { min-height: 20px; margin-top: 20px; color: #C62828; font-size: 13px; font-weight: 600; text-align: right; }
+        .shake { animation: shake .4s ease; }
+        .bk-act { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; border-top: 1px solid var(--border); padding-top: 24px;}
+        .bk-back { background: none; color: var(--text-2); font-size: 15px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+        .bk-back:hover { color: var(--navy); transform: translateX(-3px); }
+
+        .sum { padding: 24px 26px 22px; position: sticky; top: 92px;}
+        .sum h3 { font-size: 17px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px;}
+        .sum dl { margin: 0; }
+        .sum dt { font-size: 13px; font-weight: 700; color: var(--navy); margin-top: 14px; }
+        .sum dd { font-size: 14.5px; margin: 4px 0 0; font-weight: 500;}
+        .sum dd.mute { color: var(--text-2); font-weight: 400; font-style: italic;}
+
+        .dn { max-width: 480px; margin: 0 auto; text-align: center; padding: 60px 0; }
+        .dn-ic { width: 64px; height: 64px; margin: 0 auto 24px; border-radius: 50%; background: var(--ok-bg); color: var(--ok); display: grid; place-items: center; font-size: 30px; font-weight: bold; animation: pop .5s ease; }
+        .dn h1 { font-size: 28px; margin-bottom: 12px; }
+        .dn-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; text-align: left; margin: 30px 0; }
+        .dn-r { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .dn-r:last-child { border: 0; padding-bottom: 0; }
+
+        footer { background-color: var(--navy); color: var(--white); padding-top: 48px; margin-top: auto;}
+        .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.4fr; gap: 40px; }
+        .footer-col h4 { color: var(--white); font-size: 16px; margin-bottom: 14px; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--tint); }
+        footer .footer-links a { color: var(--tint); }
+        footer .footer-links a:hover { color: var(--white); text-decoration: underline; }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+        .footer-bottom { background-color: var(--navy-dark); padding: 20px 0; font-size: 14px; color: var(--tint); text-align: center; margin-top: 32px; }
+
+        @media (max-width: 900px) {
+            .bk-grid { grid-template-columns: 1fr; }
+            .sum { position: static; order: -1; margin-bottom: 24px;}
+            .dt { grid-template-columns: 1fr; gap: 24px; }
+            .sv-grid { grid-template-columns: 1fr; }
+            .visit-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-menu { display: none; position: absolute; top: 72px; left: 0; width: 100%; background: var(--white); flex-direction: column; padding: 20px; border-bottom: 1px solid var(--border); box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
+            .nav-menu.show { display: flex; }
+            .mobile-menu-toggle { display: block; }
+            .cards-grid-3, .cards-grid-2, .steps-container { grid-template-columns: 1fr; }
+            .header-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <a class="brand-logo" onclick="switchTab('home')">
+                <div class="logo-circle">MB</div>
+                <div class="brand-title">MB Pagaduan Dental Care</div>
+            </a>
+            <button class="mobile-menu-toggle" onclick="document.getElementById('navMenu').classList.toggle('show')">&#9776;</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link active" id="nav-home" onclick="switchTab('home')">Home</a></li>
+                <li><a class="nav-link" id="nav-about" onclick="switchTab('about')">About Us</a></li>
+                <li><a class="nav-link" id="nav-services" onclick="switchTab('services')">Services</a></li>
+            </ul>
+            <button class="btn btn-primary header-btn" onclick="openBooking()">Book An Appointment</button>
+        </div>
+    </header>
+
+    <!-- HOME TAB -->
+    <main id="home" class="tab-page active">
+        <section class="hero">
+            <div class="container">
+                <h1>Your ultimate destination for a healthy and beautiful smile.</h1>
+                <p>Serving the community since 2010. Book an appointment online.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openBooking()">Book An Appointment</button>
+                    <button class="btn btn-secondary" onclick="switchTab('services')">View Services</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Our Services</h2>
+                    <p class="subtitle">Complete care for every smile in the family.</p>
+                </div>
+                <!-- Services list para sa Home (galing sa MySQL via api/public.php) -->
+                <div class="cards-grid-3" id="homeServicesList">
+                    <p style="text-align:center; grid-column:1/-1; color:var(--text-2);">Loading services from database...</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-padding steps-section">
+            <div class="container text-center">
+                <h2>How to Create an Appointment?</h2>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div><h3 class="step-title">Verify Patient</h3>
+                        <p class="step-desc">Please enter your name to verify your dental records and check if you are a new or returning patient.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div><h3 class="step-title">Select Date & Doctor</h3>
+                        <p class="step-desc">Select a date on the calendar to view doctor availability.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div><h3 class="step-title">Enter Details</h3>
+                        <p class="step-desc">Select a service and provide your contact number for our confirmation.</p>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 40px;" onclick="openBooking()">Book An Appointment Now</button>
+            </div>
+        </section>
+
+        <!-- ADDED: ABOUT US SECTION -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="cards-grid-2 items-center">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="Dentists Team" style="border-radius: var(--radius-card); border: 1px solid var(--border);">
+                    </div>
+                    <div>
+                        <h2>About Us</h2>
+                        <p style="margin-bottom: 16px; font-size: 15px;">Since 2010, MB Pagaduan Dental Care and Orthodontics has looked after the smiles of families in our community. We treat children, adults, and seniors, from a simple cleaning to braces treatment.</p>
+                        <p style="margin-bottom: 24px; color: var(--text-2); font-size: 15px;">Every visit is meant to feel relaxed and welcoming, and booking your appointment is quick and simple.</p>
+                        <button class="btn btn-secondary" onclick="switchTab('about')">Learn More About Us</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADDED: VISIT US SECTION -->
+        <section class="section-padding" style="background-color: var(--soft);">
+            <div class="container">
+                <h2>Visit Us</h2>
+                <p class="subtitle">Find the clinic and plan your visit.</p>
+
+                <div class="visit-grid">
+                    <div class="map-box">
+                        <iframe id="clinicMap" src="https://www.google.com/maps?q=JC8M%2BGM5%2C%20Poblacion%20East%2C%20Santa%20Ignacia%2C%20Tarlac%2C%20Philippines&output=embed" title="MB Pagaduan Dental Care location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <ul class="info-list">
+                            <li class="info-item">
+                                <div class="info-circle-icon"></div>
+                                <div>
+                                    <div style="font-size: 14px; color: var(--text-2);">Address</div>
+                                    <div style="font-weight: 500;">JC8M+GM5, Poblacion East, Santa Ignacia, Tarlac, Philippines</div>
+                                </div>
+                            </li>
+                            <li class="info-item">
+                                <div class="info-circle-icon"></div>
+                                <div>
+                                    <div style="font-size: 14px; color: var(--text-2);">Phone</div>
+                                    <div style="font-weight: 500;">0917 123 4567</div>
+                                </div>
+                            </li>
+                            <li class="info-item">
+                                <div class="info-circle-icon"></div>
+                                <div>
+                                    <div style="font-size: 14px; color: var(--text-2);">Facebook</div>
+                                    <div style="font-weight: 500;">
+                                        <a href="https://www.facebook.com/profile.php?id=61571444950709" target="_blank" style="text-decoration: underline;">MB Pagaduan FB Page</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="info-item">
+                                <div class="info-circle-icon"></div>
+                                <div>
+                                    <div style="font-size: 14px; color: var(--text-2);">Clinic Hours</div>
+                                    <div style="font-weight: 500;">Mon to Sun, 12:00 pm to 7:00 pm</div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=JC8M%2BGM5%2C%20Poblacion%20East%2C%20Santa%20Ignacia%2C%20Tarlac%2C%20Philippines" target="_blank" rel="noopener" class="btn btn-secondary">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADDED: FAQ SECTION -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Frequently Asked Questions</h2>
+                    <p class="subtitle">Quick answers about booking, services, and payment.</p>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item active">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span>How do I book an appointment?</span>
+                            <span class="faq-toggle">—</span>
+                        </div>
+                        <div class="faq-body">
+                            Choose a date, select a doctor and service, and enter your details.<br>
+                            You'll get an SMS reminder before your visit.<br>
+                            <a href="#" onclick="openBooking(); return false;" style="font-weight: 600; margin-top: 8px; display: inline-block;">Book this now</a>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span>What services do you offer?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-body">
+                            We offer general dentistry, aesthetic dentistry, dentures, crowns & bridges, wisdom tooth removal, and orthodontic braces.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span>How much do treatments cost?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-body">
+                            Costs depend on the specific treatment required. We provide clear, transparent pricing during consultation prior to starting any procedure.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span>Can I pay for braces in installments?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-body">
+                            Yes, flexible monthly payment options are available for orthodontic braces treatment.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span>What if I need to reschedule or miss my appointment?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-body">
+                            You can easily reschedule or cancel by contacting us directly through phone or Messenger at least 24 hours in advance.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span>What should I bring to my first visit?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-body">
+                            Please bring a valid ID and any previous dental records or X-rays if you have them.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card text-center" style="max-width: 620px; margin: 48px auto 0 auto; background: var(--soft);">
+                    <h3 style="margin-bottom: 6px;">Still have questions?</h3>
+                    <p style="color: var(--text-2); font-size: 14px; margin-bottom: 20px;">Book online, or reach us at 0917 123 4567 or via our Facebook Page.</p>
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="openBooking()">Book An Appointment</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ABOUT TAB -->
+    <main id="about" class="tab-page">
+        <section class="page-banner"><div class="container"><h1>About Us</h1></div></section>
+        <section class="section-padding">
+            <div class="container">
+                <div class="cards-grid-2 items-center">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="Doctor in Clinic" style="border-radius: var(--radius-card); border: 1px solid var(--border);">
+                    <div>
+                        <h2>Our Story</h2>
+                        <p>Since 2010, MB Pagaduan Dental Care and Orthodontics has been dedicated to providing reliable and affordable dental care for every family. We take pride in being a trusted oral health partner for patients of all ages, maintaining our strong commitment to quality, accessibility, and dependable service throughout the years.</p>
+                        <p style="margin-top:16px; color:var(--text-2);">From routine dental cleanings and custom dentures to specialized orthodontic braces, we offer a comprehensive range of treatments to meet your oral health needs. Our priority is to create a welcoming and stress-free environment, ensuring that every visit to our clinic is as comfortable, pleasant, and seamless as possible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SERVICES TAB -->
+    <main id="services" class="tab-page">
+        <section class="page-banner"><div class="container"><h1>Our Services</h1></div></section>
+        <section class="section-padding">
+            <div class="container">
+                <!-- Services list para sa Services Page (galing sa MySQL via api/public.php) -->
+                <div class="cards-grid-3" id="servicesPageList">
+                    <p style="text-align:center; grid-column:1/-1; color:var(--text-2);">Loading services from database...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BOOKING TAB -->
+    <main id="booking" class="tab-page">
+        <div id="bkFlow">
+            <section class="page-banner">
+                <div class="container"><h1>Book an appointment</h1><p>Fast, easy, and direct to our system.</p></div>
+            </section>
+            
+            <section class="bk-wrap">
+                <div class="container">
+                    
+                    <!-- STEPPER -->
+                    <div class="stepper" id="stepper">
+                        <div class="st on cur" id="st1"><div class="st-c">1</div><div class="st-l">Verification</div></div>
+                        <div class="ln" id="ln1"><i></i></div>
+                        <div class="st" id="st2"><div class="st-c">2</div><div class="st-l">Date & Doctor</div></div>
+                        <div class="ln" id="ln2"><i></i></div>
+                        <div class="st" id="st3"><div class="st-c">3</div><div class="st-l">Service & Details</div></div>
+                    </div>
+
+                    <div class="bk-grid" id="bkGrid">
+                        <div class="bk-card">
+                            
+                            <!-- STEP 1: VERIFICATION -->
+                            <section class="bk-panel on" id="p1">
+                                <div class="bk-h"><div class="bk-n">1</div><div><h2>Verify Patient Record</h2><p>Verify your name so we can find your record.</p></div></div>
+                                <div class="fm">
+                                    <div class="fld" id="fldName">
+                                        <label class="fl">Full Name</label>
+                                        <div class="verify-box">
+                                            <input type="text" class="fi" id="iName" placeholder="Hal. Juan Dela Cruz" maxlength="60" autocomplete="name" oninput="this.value = this.value.replace(/[^\p{L}\s.'’-]/gu, '')">
+                                            <button type="button" class="btn btn-primary" id="verifyBtn" onclick="appVerifyPatient()">Verify</button>
+                                        </div>
+                                        <div class="verify-msg" id="verifyMsg"></div>
+                                    </div>
+                                </div>
+                                <div class="bk-hint" id="hint1"></div>
+                                <div class="bk-act">
+                                    <span></span>
+                                    <button class="btn btn-primary bk-next" id="next1" style="display:none;" onclick="appGoToStep(2)">Proceed to Step 2 &rarr;</button>
+                                </div>
+                            </section>
+
+                            <!-- STEP 2: DATE & DOCTOR -->
+                            <section class="bk-panel" id="p2">
+                                <div class="bk-h"><div class="bk-n">2</div><div><h2>Pick a Date & Doctor</h2><p>Pick a day to see the available doctors.</p></div></div>
+                                
+                                <div class="dt">
+                                    <div>
+                                        <div class="cal-hd">
+                                            <button class="cal-btn" onclick="appCalMove(-1)">&larr;</button>
+                                            <b id="calTitle">Month Year</b>
+                                            <button class="cal-btn" onclick="appCalMove(1)">&rarr;</button>
+                                        </div>
+                                        <div class="cal-g" id="calGrid"></div>
+                                        <div class="late-notice" id="lateNotice" role="status" aria-live="polite" style="display:none;">
+                                            <b id="lateNoticeTitle"></b>
+                                            <p id="lateNoticeText"></p>
+                                            <p class="late-contact">Call or text: <a href="tel:09171234567">0917 123 4567</a> &middot; <a href="https://www.facebook.com/profile.php?id=61571444950709" target="_blank" rel="noopener">Facebook page</a></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="doctor-section-box" id="doctorSelectionBox">
+                                        <div class="doctor-section-title">Available Doctors on <span id="lblSelectedDate" style="color:var(--blue);"></span></div>
+                                        <div class="doctor-grid-inline" id="docList">
+                                            <div style="font-size:13px; color:var(--text-2);">Select a date on the calendar to see the list.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bk-hint" id="hint2"></div>
+                                <div class="bk-act">
+                                    <button class="bk-back" onclick="appGoToStep(1)">&larr; Back</button>
+                                    <button class="btn btn-primary bk-next" onclick="appProceedToStep3()">Next Step &rarr;</button>
+                                </div>
+                            </section>
+
+                            <!-- STEP 3: SERVICE & DETAILS -->
+                            <section class="bk-panel" id="p3">
+                                <div class="bk-h"><div class="bk-n">3</div><div><h2>Service & Details</h2><p>Choose your treatment and enter your contact details.</p></div></div>
+                                
+                                <div id="svList"></div>
+
+                                <div class="fm" style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
+                                    <div class="fld" id="fldMobile">
+                                        <label class="fl">Mobile Number *</label>
+                                        <input type="tel" class="fi" id="iMobile" placeholder="09XXXXXXXXX or +639XXXXXXXXX" inputmode="tel" maxlength="13" autocomplete="tel" oninput="sanitizeMobile(this)">
+                                    </div>
+                                    <div class="fld" id="fldEmail">
+                                        <label class="fl">Email Address *</label>
+                                        <input type="email" class="fi" id="iEmail" placeholder="example@gmail.com" maxlength="80" autocomplete="email">
+                                    </div>
+                                </div>
+
+                                <div class="bk-hint" id="hint3"></div>
+                                <div class="bk-act">
+                                    <button class="bk-back" onclick="appGoToStep(2)">&larr; Back</button>
+                                    <button class="btn btn-primary bk-next" id="confirmBtn" onclick="appConfirmBooking()">Confirm Booking</button>
+                                </div>
+                            </section>
+
+                        </div>
+
+                        <!-- SIDEBAR SUMMARY -->
+                        <aside class="sum">
+                            <h3>Booking Summary</h3>
+                            <dl>
+                                <dt>Patient Name</dt><dd id="sumName" class="mute">Not verified yet</dd>
+                                <dt>Target Date</dt><dd id="sumDate" class="mute">Not selected yet</dd>
+                                <dt>Doctor</dt><dd id="sumDoc" class="mute">Not selected yet</dd>
+                                <dt>Service Type</dt><dd id="sumSvc" class="mute">Not selected yet</dd>
+                            </dl>
+                        </aside>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SUCCESS SCREEN -->
+        <section class="bk-wrap" id="bkDone" hidden>
+            <div class="container">
+                <div class="dn">
+                    <div class="dn-ic">✓</div>
+                    <h1>Booking Confirmed!</h1>
+                    <p>Please wait for our text message at <b id="dnMobile"></b> for final confirmation.</p>
+                    <div class="dn-card">
+                        <div class="dn-r"><span>Patient Name</span><b id="dnName"></b></div>
+                        <div class="dn-r"><span>Doctor</span><b id="dnDoc"></b></div>
+                        <div class="dn-r"><span>Service</span><b id="dnSvc"></b></div>
+                        <div class="dn-r"><span>Target Date</span><b id="dnDate"></b></div>
+                    </div>
+                    <div style="display: flex; gap:16px; justify-content: center; margin-top:30px;">
+                        <button class="btn btn-primary" onclick="window.location.reload()">Done / Book Again</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="brand-title" style="color: var(--white);">MB Pagaduan Dental Care and Orthodontics</div>
+                <p style="color: var(--tint); font-size: 14px; margin-top:8px;">Dental care for the whole family, since 2010.</p>
+                <button class="btn btn-primary" style="margin-top: 20px;" onclick="openBooking()">Book An Appointment</button>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="switchTab('home'); return false;">Home</a></li>
+                    <li><a href="#" onclick="switchTab('about'); return false;">About Us</a></li>
+                    <li><a href="#" onclick="switchTab('services'); return false;">Services</a></li>
+                    <li><a href="#" onclick="openBooking(); return false;">Book An Appointment</a></li>
+                    <li><a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:09171234567">0917 123 4567</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61571444950709" target="_blank" rel="noopener">MB Pagaduan FB Page</a></li>
+                    <li><a href="https://www.google.com/maps/dir/?api=1&destination=JC8M%2BGM5%2C%20Poblacion%20East%2C%20Santa%20Ignacia%2C%20Tarlac%2C%20Philippines" target="_blank" rel="noopener">Get Directions</a></li>
+                    <li><span>638 JC8M+GM5, Poblacion East, Santa Ignacia, Tarlac, Philippines</span></li>
+                    <li><span>Mon to Sun, 12:00 pm to 7:00 pm</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">©2026 MB Pagaduan Dental Care and Orthodontics. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- NAVIGATION JS -->
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-page').forEach(function(el) { el.classList.remove('active'); });
+            document.getElementById(tabId).classList.add('active');
+            
+            document.querySelectorAll('.nav-link').forEach(function(el) { el.classList.remove('active'); });
+            var navLink = document.getElementById('nav-' + tabId);
+            if(navLink) navLink.classList.add('active');
+            
+            document.getElementById('navMenu').classList.remove('show');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function openBooking() { switchTab('booking'); }
+        function openBookingWithService(svcName) {
+            switchTab('booking');
+            if(window.BK && window.BK.step === 1 && window.BK.name === '') {
+                window.BK.svc = svcName;
+            }
+        }
+
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const isSelfActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(function(i) {
+                i.classList.remove('active');
+                const t = i.querySelector('.faq-toggle');
+                if (t) t.textContent = '+';
+            });
+            if (!isSelfActive) {
+                item.classList.add('active');
+                const t = element.querySelector('.faq-toggle');
+                if (t) t.textContent = '—';
+            }
+        }
+    </script>
+
+    <!-- FIREBASE & BOOKING MODULE -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.7.1.min.js"><\/script>');</script>
+    <script type="module">
+        // -----------------------------------------------------------
+        // DATA LAYER: jQuery AJAX + JSON to the PHP file api/public.php (MySQL database behind it)
+        // -----------------------------------------------------------
+        const API_URL = 'api/public.php';
+
+        // Turns anything (string, object, HTML page) into short readable text, never "[object Object]"
+        function errText(v) {
+            if (v === null || v === undefined || v === '') return '';
+            if (typeof v === 'string') return v;
+            if (typeof v === 'object') {
+                if (typeof v.message === 'string') return v.message;
+                try { return JSON.stringify(v).slice(0, 200); } catch (_) { return 'unknown error'; }
+            }
+            return String(v);
+        }
+        function snippet(t) {
+            return String(t || '').replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 160) || '(empty reply)';
+        }
+
+        // Tolerant JSON parser: removes BOM / stray PHP notices printed before or after the JSON
+        function parseServerJson(txt) {
+            const t = String(txt || '').replace(/^\uFEFF/, '').trim();
+            try { return JSON.parse(t); } catch (_) { /* try to salvage */ }
+            const i = t.indexOf('{'), j = t.lastIndexOf('}');
+            if (i !== -1 && j > i) return JSON.parse(t.slice(i, j + 1));
+            throw new Error('not json');
+        }
+
+        function apiCallOnce(action, payload, mode) {
+            return new Promise((resolve, reject) => {
+                const full = Object.assign({ action: action }, payload || {});
+                const cfg = { url: API_URL, cache: false, dataType: 'text', timeout: 20000 };
+                if (mode === 'get') {                       // plain read: no request body at all
+                    Object.assign(cfg, { method: 'GET', data: full });
+                } else if (mode === 'form') {               // same JSON, sent as a normal form field
+                    Object.assign(cfg, { method: 'POST', data: { payload: JSON.stringify(full) } });
+                } else {                                    // JSON body
+                    Object.assign(cfg, { method: 'POST', contentType: 'application/json; charset=utf-8', data: JSON.stringify(full) });
+                }
+                window.jQuery.ajax(cfg)
+                .done((txt, st, xhr) => {
+                    let res;
+                    try { res = parseServerJson(txt); }
+                    catch (_) {
+                        console.error('[api] Not JSON:', txt && txt.slice(0, 500));
+                        return reject(Object.assign(new Error('The server sent an invalid reply (HTTP ' + xhr.status + '): ' + snippet(txt)), { code: 'badjson' }));
+                    }
+                    // Our PHP always answers {ok: true|false, ...}. Anything else came from somewhere else (hosting firewall, proxy, error page).
+                    if (!res || typeof res !== 'object' || typeof res.ok !== 'boolean') {
+                        console.error('[api] Unexpected reply:', txt && txt.slice(0, 500));
+                        return reject(Object.assign(new Error('Unexpected reply from the server (HTTP ' + xhr.status + '): ' + snippet(txt)), { code: 'badjson' }));
+                    }
+                    if (res.ok === false) reject(Object.assign(new Error(errText(res.error) || 'Server error'), { code: res.code, status: 200 }));
+                    else resolve(res);
+                })
+                .fail((xhr, st) => {
+                    let p = null;
+                    try { p = parseServerJson(xhr.responseText); } catch (_) { /* not JSON */ }
+                    const perr = p && errText(p.error);
+                    let msg;
+                    if (perr) msg = perr + ' (HTTP ' + xhr.status + ')';
+                    else if (xhr.status === 404) msg = 'api/public.php was not found on the server (HTTP 404). Check that the api folder was uploaded.';
+                    else if (xhr.status === 403) msg = 'The server refused the request (HTTP 403): ' + snippet(xhr.responseText);
+                    else if (xhr.status >= 500) msg = 'Server error (HTTP ' + xhr.status + '): ' + snippet(xhr.responseText);
+                    else if (st === 'timeout') msg = 'The server took too long to answer.';
+                    else if (xhr.status) msg = 'HTTP ' + xhr.status + ': ' + snippet(xhr.responseText);
+                    else msg = 'Cannot reach the server. Please check your internet connection and try again.';
+                    console.error('[api] ' + action + ' failed:', xhr.status, st, (xhr.responseText || '').slice(0, 500));
+                    reject(Object.assign(new Error(msg), { code: (p && p.code) || 'network', status: xhr.status }));
+                });
+            });
+        }
+
+        // Tries the normal way first. If a hosting firewall answers 403 (it blocks the request before PHP runs),
+        // the same call is retried in another format. Temporary failures are retried a few times.
+        async function apiCall(action, payload, tries) {
+            tries = tries || 3;
+            const isRead = (action === 'bootstrap' || action === 'unavailability');
+            const modes = isRead ? ['get', 'form', 'json'] : ['json', 'form'];
+            const OWN_403 = ['cross-site', 'csrf', 'forbidden', 'rate-limit'];
+            let lastErr;
+            for (const mode of modes) {
+                for (let i = 0; i < tries; i++) {
+                    try { return await apiCallOnce(action, payload, mode); }
+                    catch (e) {
+                        lastErr = e;
+                        if (e.status === 403 && !OWN_403.includes(e.code)) break;      // blocked by the host: try the next format
+                        const temporary = !e.status || e.status >= 500 || e.code === 'badjson' || e.code === 'network';
+                        if (!temporary) throw e;
+                        if (i === tries - 1) break;
+                        await new Promise(r => setTimeout(r, 800 * (i + 1)));
+                    }
+                }
+                if (lastErr && lastErr.status !== 403 && !(lastErr.status >= 500) && lastErr.code !== 'badjson' && lastErr.code !== 'network') throw lastErr;
+            }
+            throw lastErr;
+        }
+
+        // GLOBAL STATE
+        window.BK = { 
+            step: 1, name: '', isOldPatient: false, hasBraces: false, date: null, docId: null, docName: '', svc: null, 
+            y: new Date().getFullYear(), m: new Date().getMonth(), doctors: [], services: []
+        };
+
+        // -----------------------------------------------------------
+        // SERVICES NA HINDI NA NAKIKITA SA LANDING PAGE
+        // Nananatili ang mga ito sa Firestore ("services" collection).
+        // Lalabas lang sa booking (Step 3) kapag ang pasyente ay
+        // nakapag-avail na ng braces (Traditional o Self-Ligating).
+        // Para ibalik sa public, alisin lang ang entry dito.
+        // -----------------------------------------------------------
+        const OLD_PATIENT_ONLY_SERVICES = [
+            /braces?\s*adjust/i,           // "Braces Adjustment"
+            /bracket\s*re-?\s*attach/i    // "Bracket Reattachment" / "Re-attachment"
+        ];
+        function isOldPatientOnlyService(svc) {
+            const name = (svc && svc.name) ? String(svc.name) : '';
+            return OLD_PATIENT_ONLY_SERVICES.some(rx => rx.test(name));
+        }
+
+        // DOCTOR-ONLY ADD-ON: Wire Reattachment / Broken Wire Replacement.
+        // Si doctor lang ang nakakaalam kung natanggalan ng wire, kaya hindi ito lalabas sa online booking
+        // (kahit old patient na may braces). Sa dentist "Add-on services" (users_final.html) lang ito available.
+        const DOCTOR_ADDON_ONLY_SERVICES = [ /wire/i ];
+        function isDoctorAddonOnlyService(svc) {
+            const name = (typeof svc === 'string') ? svc : ((svc && svc.name) ? String(svc.name) : '');
+            return DOCTOR_ADDON_ONLY_SERVICES.some(rx => rx.test(name));
+        }
+
+        // Braces na pwedeng bilangin bilang "nakapag-avail" (hindi kasama ang adjustment/reattachment)
+        const BRACES_AVAILED_RX = /(traditional|common|metal|self[\s-]*ligat|braces?)/i;
+        // Mga booking status na HINDI binibilang bilang nakapag-avail
+        const NOT_AVAILED_STATUSES = ['cancelled', 'canceled', 'no-show', 'no show', 'noshow', 'declined', 'rejected'];
+
+        function isBracesAvailService(name) {
+            const n = String(name || '');
+            return BRACES_AVAILED_RX.test(n) && !OLD_PATIENT_ONLY_SERVICES.some(rx => rx.test(n));
+        }
+
+        // Tinitingnan kung nakapag-avail na ng braces ang pasyente
+        // 1) patients doc: has_braces === true
+        // 2) bookings: may booking na braces service (hindi cancelled/no-show)
+        // ---- Names are matched ignoring upper/lower case and extra spaces ("pedro" = "Pedro") ----
+        const normName = s => String(s || '').trim().replace(/\s+/g, ' ');
+        const nameKey = s => normName(s).toLowerCase();
+        // Returns the patient records (and, if there are none, a previously booked spelling) that match this name.
+        async function findExistingName(name) {
+            const out = { patients: [], bookingName: null };
+            try {
+                const r = await apiCall('patient_lookup', { name: name });
+                out.patients = r.patients || [];
+                out.bookingName = r.bookingName || null;
+            } catch(err) { console.error("Patient lookup failed.", err); }
+            return out;
+        }
+
+        // ---- Online reservations close at 6:00 PM (clinic closes at 7:00 PM) ----
+        const CUTOFF_MIN = 18 * 60, CLOSE_MIN = 19 * 60;
+        const nowMin = () => { const d = new Date(); return d.getHours() * 60 + d.getMinutes(); };
+        const isPastCutoff = () => nowMin() >= CUTOFF_MIN;
+        const isClinicClosed = () => nowMin() >= CLOSE_MIN;
+        const localToday = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+
+        async function checkHasBraces(name, patientDocs) {
+            if (patientDocs.some(d => d.has_braces === true)) return true;
+            try {
+                return !!(await apiCall('patient_has_braces', { name: name })).has_braces;
+            } catch(err) {
+                console.error("Braces history check failed.", err);
+                return false; // secure default: itago ang restricted services
+            }
+        }
+
+        // KINUHA MULA SA PDF ANG MGA EXACT DESCRIPTIONS 
+        function getServiceData(svcName) {
+            const lowerName = svcName.toLowerCase();
+            let img = "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"; // Default
+            let desc = "Pangalagaan ang iyong kalusugang dental kasama namin.";
+            let badge = "Consultation"; // Category tag bilang pampalit sa presyo
+
+            if (lowerName.includes("clean") || lowerName.includes("prophylaxis")) {
+                img = "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80";
+                desc = "Keep your teeth and gums healthy with professional dental cleaning. This procedure removes plaque, tartar, and surface stains to help prevent gum disease, cavities, and other oral health problems.";
+                badge = "General";
+            } else if (lowerName.includes("fill") || lowerName.includes("restoration")) {
+                img = "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80";
+                desc = "Restore damaged teeth with dental fillings that repair cavities and minor tooth damage. This treatment helps protect the affected tooth, restore its function, and improve its appearance.";
+                badge = "Restoration";
+            } else if (lowerName.includes("extract") || lowerName.includes("remov")) {
+                img = "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80";
+                desc = "Tooth extraction involves removing a tooth that is severely damaged, decayed, or otherwise unsuitable for preservation. Our dental team assesses your condition to support a safe procedure.";
+                badge = "Surgical";
+            } else if (lowerName.includes("denture")) {
+                img = "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80";
+                desc = "Replace missing teeth with custom-made dentures designed to restore your smile, improve chewing, and support clearer speech. Available options include plastic, porcelain, and flexible dentures.";
+                badge = "Prosthodontics";
+            } else if (lowerName.includes("crown") || lowerName.includes("jacket")) {
+                img = "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=600&q=80";
+                desc = "Restore and protect a weakened, damaged, or heavily restored tooth with a dental crown. A crown covers the visible portion of the tooth to improve its strength, shape, and appearance.";
+                badge = "Prosthodontics";
+            } else if (lowerName.includes("bridge")) {
+                img = "https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=600&q=80";
+                desc = "Replace one or more missing teeth with a fixed dental bridge supported by adjacent teeth. This restoration helps improve chewing, maintain the appearance of your smile, and restore continuity.";
+                badge = "Prosthodontics";
+            } else if (lowerName.includes("veneer") || lowerName.includes("zirconia")) {
+                img = "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80";
+                desc = "Enhance the appearance of your smile with dental veneers designed to improve the color, shape, and overall look of teeth. Veneers are planned according to your cosmetic goals.";
+                badge = "Cosmetic";
+            } else if (lowerName.includes("whiten")) {
+                img = "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80";
+                desc = "Brighten your smile with professional tooth whitening designed to reduce discoloration and surface stains. The treatment can help improve the appearance of your natural teeth.";
+                badge = "Cosmetic";
+            } else if (lowerName.includes("trad") || lowerName.includes("brace")) {
+                img = "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80";
+                desc = "Straighten your teeth and improve your bite with traditional metal braces. This orthodontic treatment gradually moves teeth into better alignment, helping address crowding and gaps.";
+                badge = "Orthodontics";
+            } else if (lowerName.includes("self") || lowerName.includes("ligat")) {
+                img = "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80";
+                desc = "Improve tooth alignment with self-ligating braces, which use built-in clips to hold the archwire instead of traditional elastic ligatures. They are an alternative orthodontic option.";
+                badge = "Orthodontics";
+            }
+
+            return { img, desc, badge };
+        }
+
+        // FETCH DATA MULA SA FIREBASE
+        function showLoadError(msg) {
+            const html = '<div style="grid-column:1/-1; text-align:center; color:var(--text-2);">'
+                + '<p style="margin-bottom:12px;">Sorry, we could not load our services right now.<br><small>' + errText(msg).replace(/</g, '&lt;') + '</small></p>'
+                + '<button class="btn btn-primary" type="button" onclick="window.retryLoadData()">Try again</button></div>';
+            ['homeServicesList', 'servicesPageList'].forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = html; });
+        }
+        window.retryLoadData = function() {
+            ['homeServicesList', 'servicesPageList'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:var(--text-2);">Loading services from database...</p>';
+            });
+            fetchInitialData();
+        };
+
+        async function fetchInitialData() {
+            try {
+                const r = await apiCall('bootstrap');
+                if (!r || typeof r !== 'object') throw new Error('Empty reply from the server.');
+                window.BK.doctors = (Array.isArray(r.doctors) ? r.doctors : []).map(d => ({ id: d.id, name: d.name, work_days: d.work_days || [1,1,1,1,1,1,1] }));
+                window.BK.services = Array.isArray(r.services) ? r.services : [];
+                populatePages();   // Home and Services cards come from the database
+            } catch(e) {
+                console.error("Error loading data from the server", e);
+                showLoadError(errText(e && e.message) || errText(e) || 'Unknown error');
+            }
+        }
+
+        // TAGA-GENERATE NG CARDS SA HOME AT SERVICES TABS
+        function populatePages() {
+            let cardsHtml = '';
+            // Itago sa landing page ang old-patient-only services (nasa database pa rin sila)
+            const publicServices = window.BK.services.filter(svc => !isOldPatientOnlyService(svc) && !isDoctorAddonOnlyService(svc));
+            
+            if(publicServices.length === 0) {
+                cardsHtml = '<p style="text-align:center; grid-column:1/-1; color:var(--text-2);">No services are available in the database.</p>';
+            } else {
+                publicServices.forEach(svc => {
+                    const svcData = getServiceData(svc.name);
+                    cardsHtml += `
+                    <div class="service-card-item">
+                        <img src="${svcData.img}" alt="${svc.name}">
+                        <div class="service-card-content">
+                            <div class="service-card-header">
+                                <h3>${svc.name}</h3>
+                                <span class="service-price-badge">${svcData.badge}</span>
+                            </div>
+                            <p>${svcData.desc}</p>
+                            <a class="service-card-link" onclick="openBookingWithService('${svc.name}')">Book this &rarr;</a>
+                        </div>
+                    </div>`;
+                });
+            }
+
+            const homeList = document.getElementById('homeServicesList');
+            const pageList = document.getElementById('servicesPageList');
+            if(homeList) homeList.innerHTML = cardsHtml;
+            if(pageList) pageList.innerHTML = cardsHtml;
+        }
+
+        // SIMULAN ANG PAG-FETCH PAGKABUKAS NG WEBSITE
+        fetchInitialData();
+
+        // -----------------------------------------------------------
+        // BOOKING FLOW LOGIC
+        // -----------------------------------------------------------
+
+        function shakeElement(id) {
+            const el = document.getElementById(id);
+            if(el) { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
+        }
+
+        function formatSum(val, placeholder) {
+            return val ? `<span style="color:var(--navy); font-style:normal;">${val}</span>` : `<span class="mute">${placeholder}</span>`;
+        }
+
+        window.appUpdateSummary = function() {
+            document.getElementById('sumName').innerHTML = formatSum(window.BK.name, "Not verified yet");
+            document.getElementById('sumDate').innerHTML = formatSum(window.BK.date, "Not selected yet");
+            document.getElementById('sumDoc').innerHTML = formatSum(window.BK.docName, "Not selected yet");
+            document.getElementById('sumSvc').innerHTML = formatSum(window.BK.svc, "Not selected yet");
+        };
+
+        window.appVerifyPatient = async function() {
+            const nameInput = document.getElementById('iName');
+            const name = normName(nameInput.value);
+            const btn = document.getElementById('verifyBtn');
+            const msgBox = document.getElementById('verifyMsg');
+            const nextBtn = document.getElementById('next1');
+            
+            if(!name) { 
+                shakeElement('fldName');
+                document.getElementById('hint1').textContent = "Please enter your full name.";
+                return; 
+            }
+            if(!/^\p{L}[\p{L}\s.'’-]{1,59}$/u.test(name) || (name.match(/\p{L}/gu) || []).length < 2) {
+                shakeElement('fldName');
+                document.getElementById('hint1').textContent = "Please enter a valid name. Letters only (spaces, . ' and - are allowed), no numbers or special characters.";
+                return;
+            }
+            document.getElementById('hint1').textContent = "";
+
+            btn.disabled = true;
+            btn.textContent = "Checking...";
+            window.BK.name = name;
+            window.BK.isOldPatient = false;
+            window.BK.hasBraces = false;
+
+            if(true) {   // always check the database (PHP) for an existing patient
+                try {
+                    const found = await findExistingName(name);
+                    window.BK.isOldPatient = found.patients.length > 0;
+                    // Always keep the spelling that is already stored, so the same person is never saved twice
+                    const stored = found.patients.length ? normName(found.patients[0].name) : (found.bookingName ? normName(found.bookingName) : name);
+                    window.BK.name = stored; nameInput.value = stored;
+                    window.BK.hasBraces = await checkHasBraces(stored, found.patients);
+                } catch(err) {
+                    console.error("DB check failed.", err);
+                }
+            }
+
+            msgBox.innerHTML = window.BK.isOldPatient 
+                ? `✅ <b>Old Patient Verified!</b> Welcome back.` 
+                : `👋 <b>New Patient Detected!</b> Proceed to complete your booking.`;
+            
+            msgBox.style.display = "block";
+            nameInput.readOnly = true;
+            btn.style.display = 'none';
+            nextBtn.style.display = 'inline-flex';
+            
+            window.appUpdateSummary();
+        };
+
+        window.appCalMove = function(dir) {
+            window.BK.m += dir;
+            if(window.BK.m < 0) { window.BK.m = 11; window.BK.y--; }
+            else if(window.BK.m > 11) { window.BK.m = 0; window.BK.y++; }
+            window.appRenderCalendar();
+        };
+
+        window.appRenderCalendar = function() {
+            const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            document.getElementById('calTitle').textContent = `${monthNames[window.BK.m]} ${window.BK.y}`;
+            
+            const firstDay = new Date(window.BK.y, window.BK.m, 1).getDay();
+            const daysInMonth = new Date(window.BK.y, window.BK.m + 1, 0).getDate();
+            
+            let today = new Date();
+            today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+            const strToday = today.toISOString().split('T')[0];
+
+            let html = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d => `<div class="cal-w">${d}</div>`).join('');
+            for(let i=0; i<firstDay; i++) html += `<div></div>`;
+            
+            for(let i=1; i<=daysInMonth; i++) {
+                const k = `${window.BK.y}-${String(window.BK.m+1).padStart(2,'0')}-${String(i).padStart(2,'0')}`;
+                const isPast = k < strToday || (k === strToday && isPastCutoff());
+                const isSel = window.BK.date === k;
+                const isToday = k === strToday;
+                html += `<button class="cal-d ${isSel ? 'sel' : ''} ${isToday ? 'today' : ''}" onclick="appSelectDate('${k}')" ${isPast ? 'disabled' : ''} ${(k === strToday && isPastCutoff()) ? 'title="Online reservations for today are closed"' : ''}>${i}</button>`;
+            }
+            document.getElementById('calGrid').innerHTML = html;
+            window.appUpdateLateNotice();
+        };
+
+        window.appUpdateLateNotice = function() {
+            const box = document.getElementById('lateNotice');
+            if(!box) return;
+            if(!isPastCutoff()) { box.style.display = 'none'; return; }
+            const closed = isClinicClosed();
+            document.getElementById('lateNoticeTitle').textContent = closed ? 'The clinic reservatipn area is closed for today.' : 'Online reservations for today are closed';
+            document.getElementById('lateNoticeText').textContent = closed
+                ? 'Our online reservation system closes at 6:00 PM. If you would like to try to secure a last-minute appointment for today, please contact the clinic directly.'
+                : 'Online reservations close at 6:00 PM. The clinic is closed to online booking, but it is open until 7:00 PM. Please contact the clinic if you would still like to book for today.';
+            box.style.display = 'block';
+        };
+
+        // Re-check the time every 15 seconds so the page reacts exactly when 6:00 PM / 7:00 PM arrives
+        let lateState = `${isPastCutoff()}-${isClinicClosed()}`;
+        setInterval(() => {
+            const st = `${isPastCutoff()}-${isClinicClosed()}`;
+            if(st === lateState || !document.getElementById('calGrid')) return;
+            lateState = st;
+            if(isPastCutoff() && window.BK && window.BK.date === localToday()) {
+                window.BK.date = null; window.BK.docId = null; window.BK.docName = '';
+                const dsb = document.getElementById('doctorSelectionBox'); if(dsb) dsb.style.display = 'none';
+                const h2 = document.getElementById('hint2'); if(h2) h2.textContent = 'Online reservations for today closed at 6:00 PM. Please choose another date or contact the clinic.';
+                window.appUpdateSummary();
+            }
+            window.appRenderCalendar();
+        }, 15000);
+
+        window.appSelectDate = async function(dateStr) {
+            window.BK.date = dateStr;
+            window.BK.docId = null; 
+            window.BK.docName = '';
+            
+            window.appRenderCalendar();
+            window.appUpdateSummary();
+            
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = new Date(dateStr).toLocaleDateString('en-US', options);
+            
+            document.getElementById('lblSelectedDate').textContent = formattedDate;
+            document.getElementById('doctorSelectionBox').style.display = 'block';
+            document.getElementById('docList').innerHTML = `<div style="text-align:center; padding:12px; font-size:14px; color:var(--text-2);">Checking available doctors...</div>`;
+
+            if(window.BK.doctors.length === 0) { await fetchInitialData(); }
+
+            const [yy, mm, dd] = dateStr.split('-');
+            const dateObj = new Date(yy, mm - 1, dd);
+            const selectedDayOfWeek = dateObj.getDay();
+
+            // CHECK UNAVAILABILITY 
+            let unavailableDocs = [];
+            try {
+                unavailableDocs = (await apiCall('unavailability', { date: dateStr })).doc_ids || [];
+            } catch(e) { console.error("Error fetching unavailability", e); }
+
+            let docHtml = '';
+            let availableCount = 0;
+            
+            window.BK.doctors.forEach(doc => {
+                const isWorkingDay = doc.work_days[selectedDayOfWeek] === 1;
+                
+                if(isWorkingDay && !unavailableDocs.includes(doc.id)) {
+                    availableCount++;
+                    let initial = doc.name.replace(/^(dr|dra)\.?\s+/i,'').charAt(0).toUpperCase() || 'D';
+                    const isSel = window.BK.docId === doc.id ? 'sel' : '';
+                    docHtml += `
+                        <div class="doctor-card-sm ${isSel}" onclick="appSelectDoctor('${doc.id}', '${doc.name}')">
+                            <div class="doc-avatar-sm">${initial}</div>
+                            <div class="doc-info-sm"><h4>${doc.name}</h4><p style="color:var(--ok);">Available Schedule</p></div>
+                        </div>`;
+                }
+            });
+
+            if(availableCount === 0) {
+                docHtml = `<div style="text-align:center; padding:12px; font-size:14px; color:#C62828; font-weight:600;">There is no doctor available on this date. Please try selecting a different date.</div>`;
+            }
+
+            document.getElementById('docList').innerHTML = docHtml;
+        };
+
+        window.appSelectDoctor = function(id, name) {
+            window.BK.docId = id;
+            window.BK.docName = name;
+            
+            document.querySelectorAll('.doctor-card-sm').forEach(el => el.classList.remove('sel'));
+            if(event && event.currentTarget) event.currentTarget.classList.add('sel');
+            
+            document.getElementById('hint2').textContent = '';
+            window.appUpdateSummary();
+        };
+
+        window.appProceedToStep3 = function() {
+            if(!window.BK.date) { shakeElement('calGrid'); document.getElementById('hint2').textContent = "Please select a date on the calendar first."; return; }
+            if(!window.BK.docId) { shakeElement('docList'); document.getElementById('hint2').textContent = "Please select an available doctor from the list."; return; }
+            if(window.BK.date === localToday() && isPastCutoff()) { document.getElementById('hint2').textContent = "Online reservations for today closed at 6:00 PM. Please choose another date or contact the clinic."; return; }
+            window.appGoToStep(3);
+        };
+
+        window.appRenderServices = function() {
+            let html = '';
+            // Braces Adjustment / Bracket Reattachment: para lang sa pasyenteng nakapag-avail na ng braces.
+            const bookableServices = (window.BK.hasBraces
+                ? window.BK.services
+                : window.BK.services.filter(svc => !isOldPatientOnlyService(svc))
+            ).filter(svc => !isDoctorAddonOnlyService(svc)); // wire add-on: doctor lang
+            if(bookableServices.length === 0) {
+                html = `<div style="text-align:center; padding:20px; color:var(--text-2);">Loading services or no services registered...</div>`;
+            } else {
+                const grouped = bookableServices.reduce((acc, svc) => {
+                    const cat = svc.category || "General Services";
+                    if (!acc[cat]) acc[cat] = [];
+                    acc[cat].push(svc);
+                    return acc;
+                }, {});
+
+                for(const [cat, svcs] of Object.entries(grouped)) {
+                    html += `<div class="sv-group"><div class="sv-t">${cat}</div><div class="sv-grid">`;
+                    svcs.forEach(svc => {
+                        const isSel = window.BK.svc === svc.name;
+                        html += `
+                            <div class="sv-o ${isSel ? 'sel' : ''}" onclick="appSelectService('${svc.name}')">
+                                <div class="rd"></div>${svc.name}
+                            </div>`;
+                    });
+                    html += `</div></div>`;
+                }
+            }
+            document.getElementById('svList').innerHTML = html;
+        };
+
+        window.appSelectService = function(name) {
+            window.BK.svc = name;
+            document.querySelectorAll('.sv-o').forEach(el => el.classList.remove('sel'));
+            if(event && event.currentTarget) event.currentTarget.classList.add('sel');
+            document.getElementById('hint3').textContent = '';
+            window.appUpdateSummary();
+        };
+
+        window.appConfirmBooking = async function() {
+            if(!window.BK.svc) { document.getElementById('hint3').textContent = "Please choose a service from above."; return; }
+            if(isDoctorAddonOnlyService(window.BK.svc) || (!window.BK.hasBraces && isOldPatientOnlyService({ name: window.BK.svc }))) {
+                window.BK.svc = null;
+                window.appUpdateSummary();
+                window.appRenderServices();
+                document.getElementById('hint3').textContent = "This service is only for patients who have already availed of braces. Please choose a different service.";
+                return;
+            }
+            if(window.BK.date === localToday() && isPastCutoff()) { document.getElementById('hint3').textContent = "Online reservations for today closed at 6:00 PM. Please go back and choose another date, or contact the clinic."; return; }
+            const mobileRaw = document.getElementById('iMobile').value.trim();
+            const email = document.getElementById('iEmail').value.trim();
+            
+            if(!mobileRaw) { shakeElement('fldMobile'); document.getElementById('hint3').textContent = "Please enter your mobile number."; return; }
+            if(!/^(09\d{9}|\+639\d{9})$/.test(mobileRaw)) { shakeElement('fldMobile'); document.getElementById('hint3').textContent = "Please enter a valid mobile number that starts with 09 or +63 (for example 09171234567)."; return; }
+            const mobile = '0' + mobileRaw.slice(-10);
+            if(!email) { shakeElement('fldEmail'); document.getElementById('hint3').textContent = "Please enter your email address."; return; }
+            if(!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/.test(email) || email.includes('..')) { shakeElement('fldEmail'); document.getElementById('hint3').textContent = "Please enter a valid email address (for example name@gmail.com)."; return; }
+
+            const btn = document.getElementById('confirmBtn');
+            btn.disabled = true;
+            btn.textContent = "Processing...";
+
+            try {
+                // Saved by PHP (api/public.php): it validates everything again before writing to MySQL
+                const saved = await apiCall('create_booking', {
+                    name: window.BK.name, email: email, mobile: mobileRaw,
+                    date: window.BK.date, doc_id: window.BK.docId, service: window.BK.svc
+                });
+                if (saved.doc_name) window.BK.docName = saved.doc_name;
+                
+                document.getElementById('dnName').textContent = window.BK.name;
+                document.getElementById('dnDoc').textContent = window.BK.docName;
+                document.getElementById('dnSvc').textContent = window.BK.svc;
+                
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                document.getElementById('dnDate').textContent = new Date(window.BK.date).toLocaleDateString('en-US', options);
+                document.getElementById('dnMobile').textContent = mobile;
+
+                document.getElementById('bkFlow').hidden = true;
+                document.getElementById('bkDone').hidden = false;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            } catch(err) {
+                console.error("Booking error:", err);
+                document.getElementById('hint3').textContent = (err && err.code && err.code !== 'network' && err.code !== 'server-error') ? err.message : "There was a problem saving your booking. Please try again.";
+                btn.disabled = false;
+                btn.textContent = "Confirm Booking";
+            }
+        };
+
+        window.appGoToStep = function(n) {
+            const isBack = n < window.BK.step;
+            document.getElementById('bkGrid').classList.toggle('back-dir', isBack);
+
+            document.querySelectorAll('.bk-panel').forEach(p => p.classList.remove('on'));
+            document.getElementById('p' + n).classList.add('on');
+            
+            document.getElementById('st1').classList.toggle('on', n >= 1);
+            document.getElementById('st2').classList.toggle('on', n >= 2);
+            document.getElementById('st3').classList.toggle('on', n >= 3);
+            
+            const ln1 = document.getElementById('ln1').querySelector('i');
+            const ln2 = document.getElementById('ln2').querySelector('i');
+            if (ln1) ln1.parentElement.classList.toggle('on', n >= 2);
+            if (ln2) ln2.parentElement.classList.toggle('on', n >= 3);
+            
+            document.querySelectorAll('.st').forEach(s => s.classList.remove('cur'));
+            document.getElementById('st' + n).classList.add('cur');
+            
+            window.BK.step = n;
+            if(n === 2) window.appRenderCalendar();
+            if(n === 3) window.appRenderServices();
+            
+            document.getElementById('stepper').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+
+    
+    // Mobile input guard: only 09XXXXXXXXX (11 digits) or +639XXXXXXXXX (13 characters) can be typed
+    window.sanitizeMobile = function(el) {
+        let v = el.value.replace(/[^0-9+]/g, '');
+        if(v.charAt(0) === '+') {
+            v = '+' + v.slice(1).replace(/\+/g, '');
+            const want = '+63';
+            for(let i = 0; i < Math.min(v.length, 3); i++) { if(v.charAt(i) !== want.charAt(i)) { v = v.slice(0, i); break; } }
+            v = v.slice(0, 13);
+        } else if(v.charAt(0) === '0') {
+            v = v.replace(/\+/g, '').slice(0, 11);
+            if(v.length >= 2 && v.charAt(1) !== '9') v = '0';
+        } else { v = ''; }
+        el.value = v;
+    };
+</script>
+</body>
+</html>
