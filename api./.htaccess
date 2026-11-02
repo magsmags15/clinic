@@ -1,0 +1,6 @@
+# Internal helper files must never be opened directly in the browser
+<IfModule mod_authz_core.c>
+    <FilesMatch "^(config|config\.local|config\.local\.example|bootstrap)\.php$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
